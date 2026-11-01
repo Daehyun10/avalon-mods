@@ -1,0 +1,24 @@
+{
+  "$schema": "file:///C:/dev/AVALON/distribution/schemas/ServerMetaSchema.schema.json",
+  "meta": {
+    "version": "1.0.0",
+    "name": "AVALON",
+    "description": "AVALON client for Minecraft 1.18.2 and Forge 40.2.0.",
+    "address": "localhost:25565",
+    "mainServer": true,
+    "autoconnect": true,
+    "javaOptions": {
+      "distribution": "TEMURIN",
+      "supported": ">=17 <22",
+      "suggestedMajor": 17,
+      "ram": {
+        "recommended": 4096,
+        "minimum": 2048
+      }
+    }
+  },
+  "forge": {
+    "version": "40.2.0"
+  },
+  "untrackedFiles": []
+}
