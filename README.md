@@ -14,6 +14,8 @@ Build it from `branding/` with Java 17 and `./gradlew.bat build`. When changing 
 
 The Discord activity name and artwork require an AVALON application in the [Discord Developer Portal](https://discord.com/developers/applications). No application ID has been configured yet. Changing the game window title does not configure Discord Rich Presence. See [Discord setup](discord-setup.md).
 
+The enhancement and ability-selection windows fit the current GUI scale and viewport. Inventory items and button hitboxes use the same scale; resizing keeps the selected equipment and pending enhancement state.
+
 ## Update the current mod
 
 Run from this repository after changing the source project:
@@ -40,5 +42,7 @@ Required mods are always enabled. Optional mods can be toggled in the launcher's
 이 저장소는 런처가 읽는 프로필 목록과 모드 다운로드 파일을 관리합니다. 메인 화면의 프로필 이름을 눌러 등록된 모드팩과 Minecraft 버전을 선택합니다. 현재 등록된 버전은 1.18.2이며, 다른 버전은 해당 버전의 Forge 또는 Fabric과 호환 모드를 준비해 프로필로 추가하면 됩니다.
 
 크리에이티브 보관함의 페이지 화살표를 넘기면 레이피어 아이콘의 **강화 모드 무기** 탭을 찾을 수 있습니다. 추가 무기 13종과 강화 스킬을 사용하는 기본 무기·도구 33종을 모았습니다. 아이템은 기본 강화 단계로 꺼내며, 연출 전용 모델은 표시하지 않습니다.
+
+강화 창과 능력 선택 창은 GUI 배율과 화면 크기에 맞춰 자동으로 조절됩니다. 아이템 아이콘·버튼·클릭 영역을 같은 비율로 맞추며, 창 크기를 바꿔도 선택 장비와 강화 대기 상태를 유지합니다.
 
 모드를 수정한 뒤 위 스크립트를 실행하고 JAR과 `distribution.json`을 함께 커밋·푸시하면 다음 게임 실행 시 갱신됩니다. 선택 모드는 설정의 Mods 항목에서 켜고 끌 수 있습니다. 서버 접속 주소는 아직 `localhost:25565`이므로 실제 서버 주소로 변경해야 합니다.
