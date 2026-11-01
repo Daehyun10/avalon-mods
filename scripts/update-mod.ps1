@@ -29,7 +29,7 @@ $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
 $profile = $manifest.servers | Where-Object id -eq 'AVALON-Development-1.18.2'
 $module = $profile.modules | Where-Object { $_.type -eq 'ForgeMod' -and $_.id -like 'com.enhance.mod:enhancemod:*' }
 if (@($module).Count -ne 1) { throw 'Expected exactly one AVALON mod module.' }
-$target = Join-Path $repoRoot 'servers/AVALON-Development-1.18.2/forgemods/required/enhancemod-1.0.jar'
+$target = Join-Path $repoRoot 'servers/AVALON-Development-1.18.2/forgemods/optionalon/enhancemod-1.0.jar'
 Copy-Item -LiteralPath $jar -Destination $target -Force
 $module.artifact.size = (Get-Item -LiteralPath $target).Length
 $module.artifact.MD5 = (Get-FileHash -LiteralPath $target -Algorithm MD5).Hash.ToLowerInvariant()

@@ -4,7 +4,7 @@ Client profiles and downloads for [AVALON Launcher](https://github.com/Daehyun10
 
 The launcher reads `distribution.json` at startup and before launching the game. Each entry in `servers` is a selectable profile with its own Minecraft version, mod loader, mods, Java requirements, and game directory.
 
-Current profile: **AVALON — Minecraft 1.18.2 / Forge 40.2.0**. The required mod is built from the owner's Enhance System project. The server address is `localhost:25565`; set a real server address in the profile before distributing it to other players.
+Current profile: **AVALON — Minecraft 1.18.2 / Forge 40.2.0**. Enhance System is enabled by default and can be turned off in Settings > Mods. Its JAR is stored in `forgemods/optionalon`. The server address is `localhost:25565`; set a real server address in the profile before distributing it to other players.
 
 ## Update the current mod
 
