@@ -18,6 +18,8 @@ Discord Rich Presence is connected to the owner's **AVALON** application (`15663
 
 The enhancement and ability-selection windows fit the current GUI scale and viewport. Inventory items and button hitboxes use the same scale; resizing keeps the selected equipment and pending enhancement state.
 
+Enhancement stones use a new 32×32 pixel crystal icon. Enhanced crossbows use cyan/gold contact sprites and a bounded suppression-field effect, with short screen-edge distortion. The suppression field keeps its existing damage, eight-second duration and cooldown. Install the same Enhance System JAR on the server and clients; this update uses network protocol 47. The artwork is packaged inside the JAR; Enhance System Java source and raw artwork are not published here.
+
 ## Update the current mod
 
 Run from this repository after changing the source project:
@@ -46,5 +48,7 @@ Required mods are always enabled. Optional mods can be toggled in the launcher's
 크리에이티브 보관함의 페이지 화살표를 넘기면 레이피어 아이콘의 **강화 모드 무기** 탭을 찾을 수 있습니다. 추가 무기 13종과 강화 스킬을 사용하는 기본 무기·도구 33종을 모았습니다. 아이템은 기본 강화 단계로 꺼내며, 연출 전용 모델은 표시하지 않습니다.
 
 강화 창과 능력 선택 창은 GUI 배율과 화면 크기에 맞춰 자동으로 조절됩니다. 아이템 아이콘·버튼·클릭 영역을 같은 비율로 맞추며, 창 크기를 바꿔도 선택 장비와 강화 대기 상태를 유지합니다.
+
+강화석은 새 32×32 도트 수정 이미지로 바꿨습니다. 강화 석궁은 청록·금빛 탄착 이미지와 제압 구역 연출, 짧은 화면 가장자리 왜곡을 사용합니다. 기존 피해·8초 지속 시간·쿨타임은 유지하며, 동시에 표시하는 효과 수를 제한합니다. 서버와 클라이언트에 같은 강화 모드 JAR를 설치해야 합니다(통신 규격 47). 이미지는 JAR 내부에 포함하며, 강화 모드 Java 소스와 이미지 원본은 이 저장소에 올리지 않습니다.
 
 모드를 수정한 뒤 위 스크립트를 실행하고 JAR과 `distribution.json`을 함께 커밋·푸시하면 다음 게임 실행 시 갱신됩니다. 선택 모드는 설정의 Mods 항목에서 켜고 끌 수 있습니다. 서버 접속 주소는 아직 `localhost:25565`이므로 실제 서버 주소로 변경해야 합니다.
