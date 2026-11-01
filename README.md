@@ -8,6 +8,12 @@ Current profile: **AVALON — Minecraft 1.18.2 / Forge 40.2.0**. Enhance System 
 
 Enhance System adds an **Enhance Mod Weapons** creative inventory tab, with a rapier icon. It contains the 13 custom weapons followed by 33 vanilla weapon/tool bases supported by the enhancement system. Use the creative inventory's page arrows to find mod tabs. Items start with their normal enhancement level; internal effect models are hidden.
 
+The required **AVALON Client** mod sets the game window title to `AVALON` and applies the image provided by the owner as the window icon. It is client-only, so the server does not need to install it. Its source and the original JPEG are in `branding/`. This remains active when Enhance System is disabled.
+
+Build it from `branding/` with Java 17 and `./gradlew.bat build`. When changing it, copy the reobfuscated JAR from `branding/build/libs/` to `servers/AVALON-Development-1.18.2/forgemods/required/`, then update its size and MD5 in `distribution.json` before publishing.
+
+The Discord activity name and artwork require an AVALON application in the [Discord Developer Portal](https://discord.com/developers/applications). No application ID has been configured yet. Changing the game window title does not configure Discord Rich Presence. See [Discord setup](discord-setup.md).
+
 ## Update the current mod
 
 Run from this repository after changing the source project:

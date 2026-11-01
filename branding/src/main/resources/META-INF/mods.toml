@@ -1,0 +1,17 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="avalonbranding"
+version="1.0.0"
+displayName="AVALON Client"
+displayTest="IGNORE_ALL_VERSION"
+description='''AVALON window title and client icon.'''
+
+[[dependencies.avalonbranding]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.18.2,1.19)"
+ordering="NONE"
+side="CLIENT"
