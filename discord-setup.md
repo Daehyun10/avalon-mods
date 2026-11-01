@@ -2,6 +2,8 @@
 
 The game window title and icon are supplied by AVALON Client. Discord Rich Presence uses a separately registered Discord application.
 
+The live catalog is configured with Application ID `1566335017280471060`, whose public name is **AVALON**. Large and small artwork use the original JPEG hosted in this repository. A local Discord IPC test confirmed that Discord accepted the AVALON application and resolved the external image. The steps below are for changing this configuration later.
+
 1. Open the [Developer Portal](https://discord.com/developers/applications) and create or select an application named `AVALON`.
 2. Set the application icon to the image supplied by the owner, available in `branding/src/main/resources/assets/avalonbranding/window-icon.jpg`.
 3. Copy its **Application ID** from General Information. This is a public identifier; no bot token or client secret is needed.

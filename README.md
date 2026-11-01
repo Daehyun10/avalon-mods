@@ -12,7 +12,7 @@ The required **AVALON Client** mod sets the game window title to `AVALON` and ap
 
 Build it from `branding/` with Java 17 and `./gradlew.bat build`. When changing it, copy the reobfuscated JAR from `branding/build/libs/` to `servers/AVALON-Development-1.18.2/forgemods/required/`, then update its size and MD5 in `distribution.json` before publishing.
 
-The Discord activity name and artwork require an AVALON application in the [Discord Developer Portal](https://discord.com/developers/applications). No application ID has been configured yet. Changing the game window title does not configure Discord Rich Presence. See [Discord setup](discord-setup.md).
+Discord Rich Presence is connected to the owner's **AVALON** application (`1566335017280471060`). The activity uses the owner's image from this repository as external artwork. Keep the Discord desktop client running when launching the game. See [Discord setup](discord-setup.md).
 
 The enhancement and ability-selection windows fit the current GUI scale and viewport. Inventory items and button hitboxes use the same scale; resizing keeps the selected equipment and pending enhancement state.
 

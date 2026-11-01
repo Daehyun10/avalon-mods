@@ -1,4 +1,10 @@
 {
   "$schema": "file:///C:/dev/AVALON/distribution/schemas/DistroMetaSchema.schema.json",
-  "meta": {}
+  "meta": {
+    "discord": {
+      "clientId": "1566335017280471060",
+      "smallImageKey": "https://raw.githubusercontent.com/Daehyun10/avalon-mods/main/branding/src/main/resources/assets/avalonbranding/window-icon.jpg",
+      "smallImageText": "AVALON"
+    }
+  }
 }
