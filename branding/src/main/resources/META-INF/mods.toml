@@ -4,7 +4,7 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="avalonbranding"
-version="1.0.0"
+version="1.0.1"
 displayName="AVALON Client"
 displayTest="IGNORE_ALL_VERSION"
 description='''AVALON window title and client icon.'''

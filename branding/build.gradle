@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.0.0'
+version = '1.0.1'
 group = 'com.avalon'
 archivesBaseName = 'avalon-branding'
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -19,3 +19,31 @@ minecraft {
 repositories { mavenCentral() }
 dependencies { minecraft 'net.minecraftforge:forge:1.18.2-40.2.0' }
 jar.finalizedBy('reobfJar')
+
+tasks.register('verifyBrandingJar') {
+    dependsOn 'reobfJar'
+    doLast {
+        def archive = new java.util.zip.ZipFile(tasks.jar.archiveFile.get().asFile)
+        try {
+            ['META-INF/mods.toml', 'pack.mcmeta', 'assets/avalonbranding/window-icon.jpg'].each { name ->
+                if (archive.getEntry(name) == null) throw new GradleException("Missing required resource: ${name}")
+            }
+            def metadata = new groovy.json.JsonSlurper().parse(archive.getInputStream(archive.getEntry('pack.mcmeta')))
+            if (metadata.pack.pack_format != 8) throw new GradleException('Minecraft 1.18.2 requires pack_format 8')
+        } finally {
+            archive.close()
+        }
+    }
+}
+check.dependsOn 'verifyBrandingJar'
+
+tasks.register('verifyMinecraftPack', JavaExec) {
+    dependsOn 'testClasses', 'verifyBrandingJar'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'com.avalon.branding.BrandingPackCheck'
+    workingDir = buildDir
+    args tasks.jar.archiveFile.get().asFile.absolutePath
+    def original = file('build/libs/avalon-branding-1.0.0.jar')
+    if (original.exists()) args original.absolutePath
+}
+check.dependsOn 'verifyMinecraftPack'

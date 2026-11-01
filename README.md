@@ -10,6 +10,8 @@ Enhance System adds an **Enhance Mod Weapons** creative inventory tab, with a ra
 
 The required **AVALON Client** mod sets the game window title to `AVALON` and applies the image provided by the owner as the window icon. It is client-only, so the server does not need to install it. Its source and the original JPEG are in `branding/`. This remains active when Enhance System is disabled.
 
+AVALON Client 1.0.1 includes the Minecraft 1.18.2 `pack.mcmeta` file (pack format 8), fixing the missing ResourcePackInfo warning in 1.0.0. The build checks the final JAR's required resources and reads its metadata through Minecraft's `FilePackResources` API.
+
 Build it from `branding/` with Java 17 and `./gradlew.bat build`. When changing it, copy the reobfuscated JAR from `branding/build/libs/` to `servers/AVALON-Development-1.18.2/forgemods/required/`, then update its size and MD5 in `distribution.json` before publishing.
 
 Discord Rich Presence is connected to the owner's **AVALON** application (`1566335017280471060`). The activity uses the owner's image from this repository as external artwork. Keep the Discord desktop client running when launching the game. See [Discord setup](discord-setup.md).
