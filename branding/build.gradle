@@ -1,23 +1,14 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.+'
-    }
-}
-apply plugin: 'net.minecraftforge.gradle'
+plugins { id 'net.minecraftforge.gradle' version '6.0.54' }
 
-version = '1.0.1'
+version = '1.0.2'
 group = 'com.avalon'
 archivesBaseName = 'avalon-branding'
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 minecraft {
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: '1.20.1'
 }
 repositories { mavenCentral() }
-dependencies { minecraft 'net.minecraftforge:forge:1.18.2-40.2.0' }
+dependencies { minecraft 'net.minecraftforge:forge:1.20.1-47.4.28' }
 jar.finalizedBy('reobfJar')
 
 tasks.register('verifyBrandingJar') {
@@ -29,7 +20,7 @@ tasks.register('verifyBrandingJar') {
                 if (archive.getEntry(name) == null) throw new GradleException("Missing required resource: ${name}")
             }
             def metadata = new groovy.json.JsonSlurper().parse(archive.getInputStream(archive.getEntry('pack.mcmeta')))
-            if (metadata.pack.pack_format != 8) throw new GradleException('Minecraft 1.18.2 requires pack_format 8')
+            if (metadata.pack.pack_format != 15) throw new GradleException('Minecraft 1.20.1 requires pack_format 15')
         } finally {
             archive.close()
         }
@@ -47,3 +38,5 @@ tasks.register('verifyMinecraftPack', JavaExec) {
     if (original.exists()) args original.absolutePath
 }
 check.dependsOn 'verifyMinecraftPack'
+
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }

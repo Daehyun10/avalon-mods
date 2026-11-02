@@ -13,16 +13,16 @@ public final class BrandingPackCheck {
             public String getMetadataSectionName() { return "pack"; }
             public JsonObject fromJson(JsonObject object) { return object; }
         };
-        try (FilePackResources resources = new FilePackResources(new File(args[0]))) {
+        try (FilePackResources resources = new FilePackResources("branding", new File(args[0]), false)) {
             JsonObject metadata = resources.getMetadataSection(serializer);
-            if (metadata == null || metadata.get("pack_format").getAsInt() != 8 || !metadata.get("description").isJsonPrimitive()) {
-                throw new AssertionError("Minecraft could not read the 1.18.2 branding pack metadata");
+            if (metadata == null || metadata.get("pack_format").getAsInt() != 15 || !metadata.get("description").isJsonPrimitive()) {
+                throw new AssertionError("Minecraft could not read the 1.20.1 branding pack metadata");
             }
-            System.out.println("PASS: Minecraft FilePackResources reads the branding JAR with pack format 8.");
+            System.out.println("PASS: Minecraft FilePackResources reads the branding JAR with pack format 15.");
         }
         if (args.length > 1) {
             boolean reproduced = false;
-            try (FilePackResources resources = new FilePackResources(new File(args[1]))) {
+            try (FilePackResources resources = new FilePackResources("old-branding", new File(args[1]), false)) {
                 resources.getMetadataSection(serializer);
             } catch (IOException expected) {
                 reproduced = expected.getMessage().contains("pack.mcmeta");

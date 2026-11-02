@@ -1,6 +1,6 @@
 param(
     [Parameter(Mandatory = $true)][string]$ProjectPath,
-    [string]$JarName = 'enhancemod-1.0.jar'
+    [string]$JarName = 'enhancemod-1.0.1-1.20.1.jar'
 )
 $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
@@ -22,14 +22,18 @@ try {
     $reader = [IO.StreamReader]::new($entry.Open())
     try { $metadata = $reader.ReadToEnd() } finally { $reader.Dispose() }
     if ($metadata -notmatch 'modId\s*=\s*"enhancemod"') { throw 'Expected the enhancemod mod ID.' }
-    if ($metadata -notmatch 'versionRange\s*=\s*"\[1\.18\.2,1\.19\)"') { throw 'Expected Minecraft [1.18.2,1.19).' }
+    if ($metadata -notmatch 'versionRange\s*=\s*"\[1\.20\.1,1\.20\.2\)"') { throw 'Expected Minecraft [1.20.1,1.20.2).' }
 } finally { $zip.Dispose() }
 $manifestPath = Join-Path $repoRoot 'distribution.json'
 $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
-$profile = $manifest.servers | Where-Object id -eq 'AVALON-Development-1.18.2'
+$profile = $manifest.servers | Where-Object id -eq 'AVALON-Development-1.20.1'
 $module = $profile.modules | Where-Object { $_.type -eq 'ForgeMod' -and $_.id -like 'com.enhance.mod:enhancemod:*' }
 if (@($module).Count -ne 1) { throw 'Expected exactly one AVALON mod module.' }
-$target = Join-Path $repoRoot 'servers/AVALON-Development-1.18.2/forgemods/optionalon/enhancemod-1.0.jar'
+$target = Join-Path $repoRoot "servers/AVALON-Development-1.20.1/forgemods/optionalon/$JarName"
+if ($metadata -notmatch '(?m)^\s*version\s*=\s*"([^"]+)"') { throw 'Missing mod version.' }
+$modVersion = $Matches[1]
+$module.id = "com.enhance.mod:enhancemod:${modVersion}@jar"
+$module.artifact.url = "https://raw.githubusercontent.com/Daehyun10/avalon-mods/main/servers/AVALON-Development-1.20.1/forgemods/optionalon/$JarName"
 Copy-Item -LiteralPath $jar -Destination $target -Force
 $module.artifact.size = (Get-Item -LiteralPath $target).Length
 $module.artifact.MD5 = (Get-FileHash -LiteralPath $target -Algorithm MD5).Hash.ToLowerInvariant()
