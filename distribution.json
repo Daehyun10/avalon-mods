@@ -1,5 +1,5 @@
 {
-  "version": "1.1.5",
+  "version": "1.1.6",
   "discord": {
     "clientId": "1566335017280471060",
     "smallImageKey": "https://raw.githubusercontent.com/Daehyun10/avalon-mods/main/branding/src/main/resources/assets/avalonbranding/window-icon.jpg",
@@ -11,7 +11,7 @@
       "name": "AVALON",
       "description": "AVALON client for Minecraft 1.20.1 and Forge 47.4.28.",
       "icon": null,
-      "version": "1.1.5",
+      "version": "1.1.6",
       "address": "localhost:25565",
       "minecraftVersion": "1.20.1",
       "mainServer": true,
@@ -484,7 +484,7 @@
           }
         },
         {
-          "id": "com.enhance.mod:enhancemod:1.0.9-1.20.1@jar",
+          "id": "com.enhance.mod:enhancemod:1.0.10-1.20.1@jar",
           "name": "Enhance System",
           "type": "ForgeMod",
           "required": {
@@ -492,9 +492,9 @@
             "def": true
           },
           "artifact": {
-            "size": 36076152,
-            "MD5": "e89fa204b8fc21c08c75867917b95f51",
-            "url": "https://raw.githubusercontent.com/Daehyun10/avalon-mods/main/servers/AVALON-Development-1.20.1/forgemods/optionalon/enhancemod-1.0.9-1.20.1.jar"
+            "size": 36079032,
+            "MD5": "174824b44a2def811faa17106f813353",
+            "url": "https://raw.githubusercontent.com/Daehyun10/avalon-mods/main/servers/AVALON-Development-1.20.1/forgemods/optionalon/enhancemod-1.0.10-1.20.1.jar"
           }
         }
       ]
